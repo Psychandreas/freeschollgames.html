@@ -1,0 +1,74 @@
+
+tino steckel <steckeltino@gmail.com>
+    
+Thu, Feb 20, 9:40â€¯PM (19 hours ago)
+    
+to me
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiele Einbetten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .game-container {
+            width: 80%;
+            margin: auto;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        .game-buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .fullscreen-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WÃ¤hle ein Spiel</h1>
+    <div class="game-buttons">
+        <button onclick="loadGame('https://venge.io')">Venge.io</button>
+        <button onclick="loadGame('https://krunker.io/?game=SSS:wvc1y')">Krunke.io</button>
+        <button onclick="loadGame('https://1v1.lol/de')">1 vs 1 lol </button>
+    </div>
+    <div class="game-container">
+        <iframe id="gameFrame" src="" ></iframe>
+        <button class="fullscreen-button" onclick="toggleFullscreen()">Vollbild</button>
+    </div>
+    <script>
+        function loadGame(url) {
+            document.getElementById('gameFrame').src = url;
+        }
+        
+        function toggleFullscreen() {
+            const iframe = document.getElementById('gameFrame');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { 
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { 
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
